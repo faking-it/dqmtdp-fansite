@@ -26,6 +26,7 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -61,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "dqmtdp-fansite:build:production"
+              "buildTarget": "dqmtdp-fansite:build:production"
             },
             "development": {
-              "browserTarget": "dqmtdp-fansite:build:development"
+              "buildTarget": "dqmtdp-fansite:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dqmtdp-fansite:build"
+            "buildTarget": "dqmtdp-fansite:build"
           }
         },
         "test": {
@@ -93,11 +94,23 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": "56b0fdec-275f-4433-8c4f-60b925b66cf5"
+    "analytics": "56b0fdec-275f-4433-8c4f-60b925b66cf5",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
